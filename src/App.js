@@ -1,26 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {Fragment} from 'react';
+import { Switch, Route } from 'react-router-dom';
+import People from "./components/People";
+import Planets from "./components/Planets";
+import PlanetShow from "./components/PlanetShow";
+import Navbar from "./components/Navbar";
+import Home from "./components/Home"
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => (
+  <Fragment>
+    <Navbar />
+    <Switch>
+    <Route exact path="/" component={Home} />
+    <Route exact path="/people" component={People} />
+    <Route exact path="/planets" component={Planets} />
+    <Route exact path="/planets/:id/" component={PlanetShow} />
+    </Switch>
+  </Fragment>
+)
 
 export default App;
